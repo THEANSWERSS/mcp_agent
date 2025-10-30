@@ -1,0 +1,45 @@
+# 
+# mcp_agent.config.yaml
+# 
+$schema: "https://github.com/lastmile-ai/mcp-agent/blob/main/schema/mcp-agent.config.schema.json"
+
+execution_engine: asyncio
+logger:
+  type: file
+  level: debug
+  transports: ["console", "file"]
+  path: "mcp-agent.log"
+  progress_display: true
+
+# --- 1. LLM 配置 (如你所示) ---
+openai:
+  # 告诉 mcp-agent 你的 OpenAI 兼容 API 入口
+  base_url: https://api.zhizengzeng.com/v1
+  # 默认模型
+  default_model: "qwen-turbo"
+  # 真正的 API key 应该放在 mcp_agent.secrets.yaml 中
+  # 或者从环境变量 OPENAI_API_KEY 读取 (框架会自动查找)
+
+
+# --- 2. 服务器配置 (添加你的 mcp-pdf-reader) ---
+mcp:
+  servers:
+    # --- 标准服务器 (你的例子) ---
+    fetch:
+      command: "uvx"
+      args: ["mcp-server-fetch"]
+    filesystem:
+      command: "npx.cmd" # 在 Windows 上用 npx.cmd
+      args: ["-y", "@modelcontextprotocol/server-filesystem", "."]
+
+    # --- 你的【自定义】服务器 ---
+    # ⬇️ 关键：我们在这里注册 pdf-reader
+    pdf-reader:
+      # ⬇️ 你的 Conda Python 路径
+      "command": "D:\\mcp_pdf_reader-main\\.conda\\python.exe"
+      # ⬇️ 你的 main.py 脚本 (注意 YAML 格式)
+      "args": 
+      "args": [
+        "D:\\mcp_pdf_reader-main\\mcp_pdf_reader-main\\src\\server.py"
+      ]
+      cwd: "D:\\mcp_pdf_reader-main\\mcp_pdf_reader-main"

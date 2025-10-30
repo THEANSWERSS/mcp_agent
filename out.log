@@ -1,0 +1,2415 @@
+Starting PDF Agent to summarize: D:\agent\easy test\tcw.pdf
+将自动加载 mcp_agent.config.yaml 中的配置...
+[INFO] 2025-10-30T21:25:32 mcp_agent.core.context - Configuring logger with level: debug
+[DEBUG] 2025-10-30T21:25:32 mcp_agent.pdf_summary_agent_from_config - Initializing OAuth token management
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Found MCP servers in config: ['fetch', 'filesystem', 'pdf-reader']
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Server 'fetch' has no auth config, skipping
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Server 'filesystem' has no auth config, skipping
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Server 'pdf-reader' has no auth config, skipping
+[INFO] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Loading subagents from configuration...
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Registering global workflow tasks with application instance.
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Registering global workflow task: 
+mcp_agent.workflows.llm.augmented_llm_openai.OpenAICompletionTasks.request_completion_task
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - Registering global workflow task: 
+mcp_agent.workflows.llm.augmented_llm_openai.OpenAICompletionTasks.request_structured_completion_task
+[INFO] 2025-10-30T21:25:33 mcp_agent.pdf_summary_agent_from_config - MCPApp initialized
+{
+  "data": {
+    "progress_action": "Running",
+    "target": "pdf_summary_agent_from_config",
+    "agent_name": "mcp_application_loop",
+    "session_id": "b309a4de-1bbb-4ee3-aae1-390306596dca"
+  }
+}
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.agents.agent - Initializing agent pdf_researcher...
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.agents.agent - Initialized aggregator for agent 'pdf_researcher'
+{
+  "data": {
+    "refcount": 1,
+    "server_names": [
+      "filesystem",
+      "pdf-reader"
+    ],
+    "connection_persistence": true
+  }
+}
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.mcp.mcp_connection_manager - filesystem: Found server configuration=
+{
+  "data": {
+    "name": "filesystem",
+    "description": null,
+    "transport": "stdio",
+    "command": "npx.cmd",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "."
+    ],
+    "cwd": null,
+    "url": null,
+    "headers": null,
+    "http_timeout_seconds": null,
+    "read_timeout_seconds": null,
+    "terminate_on_close": true,
+    "auth": "<redacted>",
+    "roots": null,
+    "env": null,
+    "allowed_tools": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.mcp.mcp_connection_manager - pdf-reader: Found server configuration=
+{
+  "data": {
+    "name": "pdf-reader",
+    "description": null,
+    "transport": "stdio",
+    "command": "D:\\mcp_pdf_reader-main\\.conda\\python.exe",
+    "args": [
+      "D:\\mcp_pdf_reader-main\\mcp_pdf_reader-main\\src\\server.py"
+    ],
+    "cwd": "D:\\mcp_pdf_reader-main\\mcp_pdf_reader-main",
+    "url": null,
+    "headers": null,
+    "http_timeout_seconds": null,
+    "read_timeout_seconds": null,
+    "terminate_on_close": true,
+    "auth": "<redacted>",
+    "roots": null,
+    "env": null,
+    "allowed_tools": null
+  }
+}
+[INFO] 2025-10-30T21:25:33 mcp_agent.mcp.mcp_connection_manager - filesystem: Up and running with a persistent connection!
+[INFO] 2025-10-30T21:25:33 mcp_agent.mcp.mcp_connection_manager - pdf-reader: Up and running with a persistent connection!
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "initialize",
+    "params": {
+      "meta": null,
+      "protocolVersion": "2025-06-18",
+      "capabilities": {
+        "experimental": null,
+        "sampling": {},
+        "elicitation": {},
+        "roots": {
+          "listChanged": true
+        }
+      },
+      "clientInfo": {
+        "name": "mcp",
+        "title": null,
+        "version": "0.1.0",
+        "websiteUrl": null,
+        "icons": null
+      }
+    }
+  }
+}
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "initialize",
+    "params": {
+      "meta": null,
+      "protocolVersion": "2025-06-18",
+      "capabilities": {
+        "experimental": null,
+        "sampling": {},
+        "elicitation": {},
+        "roots": {
+          "listChanged": true
+        }
+      },
+      "clientInfo": {
+        "name": "mcp",
+        "title": null,
+        "version": "0.1.0",
+        "websiteUrl": null,
+        "icons": null
+      }
+    }
+  }
+}
+[DEBUG] 2025-10-30T21:25:33 mcp_agent.tracing.token_counter - Added watch cd619c43-3b33-45e9-a302-d9ae370e3f4f for node=None, type=None, async=True
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "experimental": {},
+      "logging": null,
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": "False",
+        "listChanged": "False"
+      },
+      "tools": {
+        "listChanged": true
+      },
+      "completions": null
+    },
+    "serverInfo": {
+      "name": "PDF Reader Server",
+      "title": null,
+      "version": "1.16.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "instructions": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_notification:
+{
+  "data": {
+    "method": "notifications/initialized",
+    "params": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "tools/list",
+    "params": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "nextCursor": null,
+    "tools": [
+      {
+        "name": "read_pdf_text",
+        "title": null,
+        "description": "Extract text content from a PDF file\n\nArgs:\n    file_path: Path to the PDF file to read\n    page_range: Optional dict with 
+'start' and 'end' page numbers (1-indexed)\n\nReturns:\n    Dictionary containing extracted text and metadata",
+        "inputSchema": {
+          "properties": {
+            "file_path": {
+              "type": "string"
+            },
+            "page_range": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": "True",
+          "type": "object"
+        },
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "_fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "extract_pdf_images",
+        "title": null,
+        "description": "Extract all images from a PDF file\n\nArgs:\n    file_path: Path to the PDF file\n    output_dir: Directory to save extracted images
+(optional, defaults to temp dir)\n    page_range: Optional dict with 'start' and 'end' page numbers (1-indexed)\n\nReturns:\n    Dictionary containing 
+information about extracted images",
+        "inputSchema": {
+          "properties": {
+            "file_path": {
+              "type": "string"
+            },
+            "output_dir": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "page_range": {
+              "anyOf": [
+                {
+                  "additionalProperties": "True",
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": "True",
+          "type": "object"
+        },
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "_fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "read_pdf_with_ocr",
+        "title": null,
+        "description": "Extract text from PDF including OCR text from images\n\nArgs:\n    file_path: Path to the PDF file\n    page_range: Optional dict 
+with 'start' and 'end' page numbers (1-indexed)\n    ocr_language: OCR language code (default: 'eng')\n\nReturns:\n    Dictionary containing extracted text 
+from both text and images",
+        "inputSchema": {
+          "properties": {
+            "file_path": {
+              "type": "string"
+            },
+            "page_range": {
+              "anyOf": [
+                {
+                  "additionalProperties": "True",
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "ocr_language": {
+              "default": "eng",
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": "True",
+          "type": "object"
+        },
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "_fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "get_pdf_info",
+        "title": null,
+        "description": "Get metadata and information about a PDF file\n\nArgs:\n    file_path: Path to the PDF file\n\nReturns:\n    Dictionary containing 
+PDF metadata and statistics",
+        "inputSchema": {
+          "properties": {
+            "file_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": "True",
+          "type": "object"
+        },
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "_fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      {
+        "name": "analyze_pdf_structure",
+        "title": null,
+        "description": "Analyze PDF structure including pages, images, and text blocks\n\nArgs:\n    file_path: Path to the PDF file\n\nReturns:\n    
+Dictionary containing detailed structural analysis",
+        "inputSchema": {
+          "properties": {
+            "file_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": "True",
+          "type": "object"
+        },
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "_fastmcp": {
+            "tags": []
+          }
+        }
+      }
+    ]
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "prompts/list",
+    "params": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "nextCursor": null,
+    "prompts": []
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "resources/list",
+    "params": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "nextCursor": null,
+    "resources": []
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_aggregator.pdf_researcher - MCP Aggregator initialized for server 'pdf-reader'
+{
+  "data": {
+    "progress_action": "Initialized",
+    "server_name": "pdf-reader",
+    "agent_name": "pdf_researcher",
+    "tool_count": 5,
+    "disabled_tool_count": 0,
+    "prompt_count": "0",
+    "resource_count": "0"
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "experimental": null,
+      "logging": null,
+      "prompts": null,
+      "resources": null,
+      "tools": {
+        "listChanged": null
+      },
+      "completions": null
+    },
+    "serverInfo": {
+      "name": "secure-filesystem-server",
+      "title": null,
+      "version": "0.2.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "instructions": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_notification:
+{
+  "data": {
+    "method": "notifications/initialized",
+    "params": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "tools/list",
+    "params": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_response: request_id=0, response=
+{
+  "data": {
+    "meta": null,
+    "roots": []
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "nextCursor": null,
+    "tools": [
+      {
+        "name": "read_file",
+        "title": null,
+        "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "tail": {
+              "type": "number",
+              "description": "If provided, returns only the last N lines of the file"
+            },
+            "head": {
+              "type": "number",
+              "description": "If provided, returns only the first N lines of the file"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "read_text_file",
+        "title": null,
+        "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error 
+messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N
+lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within 
+allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "tail": {
+              "type": "number",
+              "description": "If provided, returns only the last N lines of the file"
+            },
+            "head": {
+              "type": "number",
+              "description": "If provided, returns only the first N lines of the file"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "read_media_file",
+        "title": null,
+        "description": "Read an image or audio file. Returns the base64 encoded data and MIME type. Only works within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "read_multiple_files",
+        "title": null,
+        "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or
+compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. 
+Only works within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "paths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "paths"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "write_file",
+        "title": null,
+        "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files 
+without warning. Handles text content with proper encoding. Only works within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "edit_file",
+        "title": null,
+        "description": "Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff showing the
+changes made. Only works within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "edits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "oldText": {
+                    "type": "string",
+                    "description": "Text to search for - must match exactly"
+                  },
+                  "newText": {
+                    "type": "string",
+                    "description": "Text to replace with"
+                  }
+                },
+                "required": [
+                  "oldText",
+                  "newText"
+                ],
+                "additionalProperties": "False"
+              }
+            },
+            "dryRun": {
+              "type": "boolean",
+              "default": "False",
+              "description": "Preview changes using git-style diff format"
+            }
+          },
+          "required": [
+            "path",
+            "edits"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "create_directory",
+        "title": null,
+        "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory 
+already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works 
+within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "list_directory",
+        "title": null,
+        "description": "Get a detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories 
+with [FILE] and [DIR] prefixes. This tool is essential for understanding directory structure and finding specific files within a directory. Only works 
+within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "list_directory_with_sizes",
+        "title": null,
+        "description": "Get a detailed listing of all files and directories in a specified path, including sizes. Results clearly distinguish between files 
+and directories with [FILE] and [DIR] prefixes. This tool is useful for understanding directory structure and finding specific files within a directory. 
+Only works within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "sortBy": {
+              "type": "string",
+              "enum": [
+                "name",
+                "size"
+              ],
+              "default": "name",
+              "description": "Sort entries by name or size"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "directory_tree",
+        "title": null,
+        "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 
+'children' for directories. Files have no children array, while directories always have a children array (which may be empty). The output is formatted with 
+2-space indentation for readability. Only works within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "move_file",
+        "title": null,
+        "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination 
+exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and 
+destination must be within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "destination": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "destination"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "search_files",
+        "title": null,
+        "description": "Recursively search for files and directories matching a pattern. Searches through all subdirectories from the starting path. The 
+search is case-insensitive and matches partial names. Returns full paths to all matching items. Great for finding files when you don't know their exact 
+location. Only searches within allowed directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "excludePatterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            }
+          },
+          "required": [
+            "path",
+            "pattern"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "get_file_info",
+        "title": null,
+        "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified
+time, permissions, and type. This tool is perfect for understanding file characteristics without reading the actual content. Only works within allowed 
+directories.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": "False",
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      },
+      {
+        "name": "list_allowed_directories",
+        "title": null,
+        "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also 
+accessible. Use this to understand which directories and their nested paths are available before trying to access files.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null
+      }
+    ]
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_aggregator.pdf_researcher - Server 'filesystem' does not support prompts
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_aggregator.pdf_researcher - Server 'filesystem' does not support resources
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.mcp.mcp_aggregator.pdf_researcher - MCP Aggregator initialized for server 'filesystem'
+{
+  "data": {
+    "progress_action": "Initialized",
+    "server_name": "filesystem",
+    "agent_name": "pdf_researcher",
+    "tool_count": 14,
+    "disabled_tool_count": 0,
+    "prompt_count": "0",
+    "resource_count": "0"
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.agents.agent - Agent pdf_researcher initialized.
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.agents.agent - Human input callback not set
+[INFO] 2025-10-30T21:25:34 mcp_agent.pdf_summary_agent_from_config - 向 Agent 提交新任务: Please extract all images from the PDF at 'D:\agent\easy 
+test\tcw.pdf' and save them to the directory 'D:gent\my_images'.
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.agents.agent - Human input callback not set
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Completion request arguments:
+{
+  "data": {
+    "model": "qwen-turbo",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful research assistant.\n            You can read local files using 'filesystem' and read PDF content using 
+'pdf-reader'.\n            Use the 'pdf-reader' tools (like read_pdf_with_ocr) when asked to analyze a PDF.\n            Use 'filesystem' tools (like 
+list_files) for general file operations."
+      },
+      {
+        "role": "user",
+        "content": "Please extract all images from the PDF at 'D:\\agent\\easy test\\tcw.pdf' and save them to the directory 'D:\u0007gent\\my_images'."
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_read_pdf_text",
+          "description": "Extract text content from a PDF file\n\nArgs:\n    file_path: Path to the PDF file to read\n    page_range: Optional dict with 
+'start' and 'end' page numbers (1-indexed)\n\nReturns:\n    Dictionary containing extracted text and metadata",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              },
+              "page_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_extract_pdf_images",
+          "description": "Extract all images from a PDF file\n\nArgs:\n    file_path: Path to the PDF file\n    output_dir: Directory to save extracted 
+images (optional, defaults to temp dir)\n    page_range: Optional dict with 'start' and 'end' page numbers (1-indexed)\n\nReturns:\n    Dictionary 
+containing information about extracted images",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              },
+              "output_dir": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "page_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": "True",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_read_pdf_with_ocr",
+          "description": "Extract text from PDF including OCR text from images\n\nArgs:\n    file_path: Path to the PDF file\n    page_range: Optional dict 
+with 'start' and 'end' page numbers (1-indexed)\n    ocr_language: OCR language code (default: 'eng')\n\nReturns:\n    Dictionary containing extracted text 
+from both text and images",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              },
+              "page_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": "True",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "ocr_language": {
+                "default": "eng",
+                "type": "string"
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_get_pdf_info",
+          "description": "Get metadata and information about a PDF file\n\nArgs:\n    file_path: Path to the PDF file\n\nReturns:\n    Dictionary containing
+PDF metadata and statistics",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_analyze_pdf_structure",
+          "description": "Analyze PDF structure including pages, images, and text blocks\n\nArgs:\n    file_path: Path to the PDF file\n\nReturns:\n    
+Dictionary containing detailed structural analysis",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_file",
+          "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "tail": {
+                "type": "number",
+                "description": "If provided, returns only the last N lines of the file"
+              },
+              "head": {
+                "type": "number",
+                "description": "If provided, returns only the first N lines of the file"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false,
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_text_file",
+          "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error 
+messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N
+lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within 
+allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "tail": {
+                "type": "number",
+                "description": "If provided, returns only the last N lines of the file"
+              },
+              "head": {
+                "type": "number",
+                "description": "If provided, returns only the first N lines of the file"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_media_file",
+          "description": "Read an image or audio file. Returns the base64 encoded data and MIME type. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_multiple_files",
+          "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze 
+or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. 
+Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "paths"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_write_file",
+          "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files 
+without warning. Handles text content with proper encoding. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "content"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_edit_file",
+          "description": "Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff showing 
+the changes made. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "edits": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "oldText": {
+                      "type": "string",
+                      "description": "Text to search for - must match exactly"
+                    },
+                    "newText": {
+                      "type": "string",
+                      "description": "Text to replace with"
+                    }
+                  },
+                  "required": [
+                    "oldText",
+                    "newText"
+                  ],
+                  "additionalProperties": "False"
+                }
+              },
+              "dryRun": {
+                "type": "boolean",
+                "default": "False",
+                "description": "Preview changes using git-style diff format"
+              }
+            },
+            "required": [
+              "path",
+              "edits"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_create_directory",
+          "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory 
+already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works 
+within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_list_directory",
+          "description": "Get a detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories
+with [FILE] and [DIR] prefixes. This tool is essential for understanding directory structure and finding specific files within a directory. Only works 
+within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_list_directory_with_sizes",
+          "description": "Get a detailed listing of all files and directories in a specified path, including sizes. Results clearly distinguish between 
+files and directories with [FILE] and [DIR] prefixes. This tool is useful for understanding directory structure and finding specific files within a 
+directory. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "sortBy": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "size"
+                ],
+                "default": "name",
+                "description": "Sort entries by name or size"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_directory_tree",
+          "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 
+'children' for directories. Files have no children array, while directories always have a children array (which may be empty). The output is formatted with 
+2-space indentation for readability. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_move_file",
+          "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination
+exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and 
+destination must be within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "destination": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "destination"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_search_files",
+          "description": "Recursively search for files and directories matching a pattern. Searches through all subdirectories from the starting path. The 
+search is case-insensitive and matches partial names. Returns full paths to all matching items. Great for finding files when you don't know their exact 
+location. Only searches within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              },
+              "excludePatterns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              }
+            },
+            "required": [
+              "path",
+              "pattern"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_get_file_info",
+          "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last 
+modified time, permissions, and type. This tool is perfect for understanding file characteristics without reading the actual content. Only works within 
+allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_list_allowed_directories",
+          "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also 
+accessible. Use this to understand which directories and their nested paths are available before trying to access files.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      }
+    ],
+    "max_tokens": 4096
+  }
+}
+[DEBUG] 2025-10-30T21:25:34 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Chat in progress
+{
+  "data": {
+    "progress_action": "Chatting",
+    "model": "qwen-turbo",
+    "agent_name": "pdf_researcher",
+    "chat_turn": 1
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - OpenAI ChatCompletion response:
+{
+  "data": {
+    "id": "chatcmpl-e2b65768-a710-488e-aa17-7448ae33de16",
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [
+            {
+              "id": "call_b2a35e08eaf447808487ea",
+              "function": {
+                "arguments": "{\"file_path\": \"D:\\\\agent\\\\easy test\\\\tcw.pdf\", \"output_dir\": \"D:\\\\agent\\\\my_images\"}",
+                "name": "pdf-reader_extract_pdf_images"
+              },
+              "type": "function"
+            }
+          ]
+        }
+      }
+    ],
+    "created": 1761830742,
+    "model": "qwen-turbo",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 2890,
+      "total_tokens": 2934,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": "0"
+      }
+    },
+    "_request_id": null
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.tracing.token_counter - Queued watch cd619c43-3b33-45e9-a302-d9ae370e3f4f for pdf_summary_agent_from_config (app) with
+2934 tokens
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.agents.agent - Agent 'pdf_researcher' in-flight +1
+{
+  "data": {
+    "inflight": 1
+  }
+}
+[INFO] 2025-10-30T21:25:42 mcp_agent.mcp.mcp_aggregator.pdf_researcher - Requesting tool call
+{
+  "data": {
+    "progress_action": "Calling Tool",
+    "tool_name": "extract_pdf_images",
+    "server_name": "pdf-reader",
+    "agent_name": "pdf_researcher"
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.mcp.mcp_agent_client_session - send_request: request=
+{
+  "data": {
+    "method": "tools/call",
+    "params": {
+      "meta": null,
+      "name": "extract_pdf_images",
+      "arguments": {
+        "file_path": "D:\\agent\\easy test\\tcw.pdf",
+        "output_dir": "D:\\agent\\my_images"
+      }
+    }
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.mcp.mcp_agent_client_session - send_request: response=
+{
+  "data": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"file_path\":\"D:\\\\agent\\\\easy 
+test\\\\tcw.pdf\",\"output_directory\":\"D:\\\\agent\\\\my_images\",\"pages_processed\":\"1-1\",\"images_extracted\":5,\"images\":[{\"page_number\":1,\"imag
+e_index\":5,\"filename\":\"page_1_img_5.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_img_5.png\",\"width\":72,\"height\":72,\"size_bytes\":9756},{\"p
+age_number\":1,\"image_index\":6,\"filename\":\"page_1_img_6.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_img_6.png\",\"width\":72,\"height\":72,\"si
+ze_bytes\":9654},{\"page_number\":1,\"image_index\":7,\"filename\":\"page_1_img_7.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_img_7.png\",\"width\":
+72,\"height\":72,\"size_bytes\":9059},{\"page_number\":1,\"image_index\":8,\"filename\":\"page_1_img_8.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_i
+mg_8.png\",\"width\":72,\"height\":72,\"size_bytes\":9724},{\"page_number\":1,\"image_index\":9,\"filename\":\"page_1_img_9.png\",\"path\":\"D:\\\\agent\\\\
+my_images\\\\page_1_img_9.png\",\"width\":351,\"height\":421,\"size_bytes\":171280}]}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "file_path": "D:\\agent\\easy test\\tcw.pdf",
+      "output_directory": "D:\\agent\\my_images",
+      "pages_processed": "1-1",
+      "images_extracted": 5,
+      "images": [
+        {
+          "page_number": 1,
+          "image_index": "5",
+          "filename": "page_1_img_5.png",
+          "path": "D:\\agent\\my_images\\page_1_img_5.png",
+          "width": 72,
+          "height": "72",
+          "size_bytes": 9756
+        },
+        {
+          "page_number": "1",
+          "image_index": 6,
+          "filename": "page_1_img_6.png",
+          "path": "D:\\agent\\my_images\\page_1_img_6.png",
+          "width": "72",
+          "height": "72",
+          "size_bytes": 9654
+        },
+        {
+          "page_number": "1",
+          "image_index": 7,
+          "filename": "page_1_img_7.png",
+          "path": "D:\\agent\\my_images\\page_1_img_7.png",
+          "width": "72",
+          "height": "72",
+          "size_bytes": 9059
+        },
+        {
+          "page_number": "1",
+          "image_index": 8,
+          "filename": "page_1_img_8.png",
+          "path": "D:\\agent\\my_images\\page_1_img_8.png",
+          "width": "72",
+          "height": "72",
+          "size_bytes": 9724
+        },
+        {
+          "page_number": "1",
+          "image_index": 9,
+          "filename": "page_1_img_9.png",
+          "path": "D:\\agent\\my_images\\page_1_img_9.png",
+          "width": 351,
+          "height": 421,
+          "size_bytes": 171280
+        }
+      ]
+    },
+    "isError": false
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.agents.agent - Agent 'pdf_researcher' in-flight -1
+{
+  "data": {
+    "remaining": 0,
+    "pending_shutdown": false,
+    "will_close": "False"
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Iteration 0: Tool call results: [{'role': 'tool', 'tool_call_id': 
+'call_b2a35e08eaf447808487ea', 'content': [{'type': 'text', 'text': '{"success":true,"file_path":"D:\\\\agent\\\\easy 
+test\\\\tcw.pdf","output_directory":"D:\\\\agent\\\\my_images","pages_processed":"1-1","images_extracted":5,"images":[{"page_number":1,"image_index":5,"file
+name":"page_1_img_5.png","path":"D:\\\\agent\\\\my_images\\\\page_1_img_5.png","width":72,"height":72,"size_bytes":9756},{"page_number":1,"image_index":6,"f
+ilename":"page_1_img_6.png","path":"D:\\\\agent\\\\my_images\\\\page_1_img_6.png","width":72,"height":72,"size_bytes":9654},{"page_number":1,"image_index":7
+,"filename":"page_1_img_7.png","path":"D:\\\\agent\\\\my_images\\\\page_1_img_7.png","width":72,"height":72,"size_bytes":9059},{"page_number":1,"image_index
+":8,"filename":"page_1_img_8.png","path":"D:\\\\agent\\\\my_images\\\\page_1_img_8.png","width":72,"height":72,"size_bytes":9724},{"page_number":1,"image_in
+dex":9,"filename":"page_1_img_9.png","path":"D:\\\\agent\\\\my_images\\\\page_1_img_9.png","width":351,"height":421,"size_bytes":171280}]}'}]}]
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Completion request arguments:
+{
+  "data": {
+    "model": "qwen-turbo",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful research assistant.\n            You can read local files using 'filesystem' and read PDF content using 
+'pdf-reader'.\n            Use the 'pdf-reader' tools (like read_pdf_with_ocr) when asked to analyze a PDF.\n            Use 'filesystem' tools (like 
+list_files) for general file operations."
+      },
+      {
+        "role": "user",
+        "content": "Please extract all images from the PDF at 'D:\\agent\\easy test\\tcw.pdf' and save them to the directory 'D:\u0007gent\\my_images'."
+      },
+      {
+        "role": "assistant",
+        "audio": null,
+        "refusal": null,
+        "name": "pdf_researcher",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "call_b2a35e08eaf447808487ea",
+            "function": {
+              "arguments": "{\"file_path\": \"D:\\\\agent\\\\easy test\\\\tcw.pdf\", \"output_dir\": \"D:\\\\agent\\\\my_images\"}",
+              "name": "pdf-reader_extract_pdf_images"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_b2a35e08eaf447808487ea",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"success\":true,\"file_path\":\"D:\\\\agent\\\\easy 
+test\\\\tcw.pdf\",\"output_directory\":\"D:\\\\agent\\\\my_images\",\"pages_processed\":\"1-1\",\"images_extracted\":5,\"images\":[{\"page_number\":1,\"imag
+e_index\":5,\"filename\":\"page_1_img_5.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_img_5.png\",\"width\":72,\"height\":72,\"size_bytes\":9756},{\"p
+age_number\":1,\"image_index\":6,\"filename\":\"page_1_img_6.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_img_6.png\",\"width\":72,\"height\":72,\"si
+ze_bytes\":9654},{\"page_number\":1,\"image_index\":7,\"filename\":\"page_1_img_7.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_img_7.png\",\"width\":
+72,\"height\":72,\"size_bytes\":9059},{\"page_number\":1,\"image_index\":8,\"filename\":\"page_1_img_8.png\",\"path\":\"D:\\\\agent\\\\my_images\\\\page_1_i
+mg_8.png\",\"width\":72,\"height\":72,\"size_bytes\":9724},{\"page_number\":1,\"image_index\":9,\"filename\":\"page_1_img_9.png\",\"path\":\"D:\\\\agent\\\\
+my_images\\\\page_1_img_9.png\",\"width\":351,\"height\":421,\"size_bytes\":171280}]}"
+          }
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_read_pdf_text",
+          "description": "Extract text content from a PDF file\n\nArgs:\n    file_path: Path to the PDF file to read\n    page_range: Optional dict with 
+'start' and 'end' page numbers (1-indexed)\n\nReturns:\n    Dictionary containing extracted text and metadata",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              },
+              "page_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_extract_pdf_images",
+          "description": "Extract all images from a PDF file\n\nArgs:\n    file_path: Path to the PDF file\n    output_dir: Directory to save extracted 
+images (optional, defaults to temp dir)\n    page_range: Optional dict with 'start' and 'end' page numbers (1-indexed)\n\nReturns:\n    Dictionary 
+containing information about extracted images",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              },
+              "output_dir": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "page_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": "True",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_read_pdf_with_ocr",
+          "description": "Extract text from PDF including OCR text from images\n\nArgs:\n    file_path: Path to the PDF file\n    page_range: Optional dict 
+with 'start' and 'end' page numbers (1-indexed)\n    ocr_language: OCR language code (default: 'eng')\n\nReturns:\n    Dictionary containing extracted text 
+from both text and images",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              },
+              "page_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": "True",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "ocr_language": {
+                "default": "eng",
+                "type": "string"
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_get_pdf_info",
+          "description": "Get metadata and information about a PDF file\n\nArgs:\n    file_path: Path to the PDF file\n\nReturns:\n    Dictionary containing
+PDF metadata and statistics",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "pdf-reader_analyze_pdf_structure",
+          "description": "Analyze PDF structure including pages, images, and text blocks\n\nArgs:\n    file_path: Path to the PDF file\n\nReturns:\n    
+Dictionary containing detailed structural analysis",
+          "parameters": {
+            "properties": {
+              "file_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "file_path"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_file",
+          "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "tail": {
+                "type": "number",
+                "description": "If provided, returns only the last N lines of the file"
+              },
+              "head": {
+                "type": "number",
+                "description": "If provided, returns only the first N lines of the file"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false,
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_text_file",
+          "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error 
+messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N
+lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within 
+allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "tail": {
+                "type": "number",
+                "description": "If provided, returns only the last N lines of the file"
+              },
+              "head": {
+                "type": "number",
+                "description": "If provided, returns only the first N lines of the file"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_media_file",
+          "description": "Read an image or audio file. Returns the base64 encoded data and MIME type. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_read_multiple_files",
+          "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze 
+or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. 
+Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "paths"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_write_file",
+          "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files 
+without warning. Handles text content with proper encoding. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "content"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_edit_file",
+          "description": "Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff showing 
+the changes made. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "edits": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "oldText": {
+                      "type": "string",
+                      "description": "Text to search for - must match exactly"
+                    },
+                    "newText": {
+                      "type": "string",
+                      "description": "Text to replace with"
+                    }
+                  },
+                  "required": [
+                    "oldText",
+                    "newText"
+                  ],
+                  "additionalProperties": "False"
+                }
+              },
+              "dryRun": {
+                "type": "boolean",
+                "default": "False",
+                "description": "Preview changes using git-style diff format"
+              }
+            },
+            "required": [
+              "path",
+              "edits"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_create_directory",
+          "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory 
+already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works 
+within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_list_directory",
+          "description": "Get a detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories
+with [FILE] and [DIR] prefixes. This tool is essential for understanding directory structure and finding specific files within a directory. Only works 
+within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_list_directory_with_sizes",
+          "description": "Get a detailed listing of all files and directories in a specified path, including sizes. Results clearly distinguish between 
+files and directories with [FILE] and [DIR] prefixes. This tool is useful for understanding directory structure and finding specific files within a 
+directory. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "sortBy": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "size"
+                ],
+                "default": "name",
+                "description": "Sort entries by name or size"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_directory_tree",
+          "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 
+'children' for directories. Files have no children array, while directories always have a children array (which may be empty). The output is formatted with 
+2-space indentation for readability. Only works within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_move_file",
+          "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination
+exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and 
+destination must be within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "destination": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "destination"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_search_files",
+          "description": "Recursively search for files and directories matching a pattern. Searches through all subdirectories from the starting path. The 
+search is case-insensitive and matches partial names. Returns full paths to all matching items. Great for finding files when you don't know their exact 
+location. Only searches within allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              },
+              "excludePatterns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              }
+            },
+            "required": [
+              "path",
+              "pattern"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_get_file_info",
+          "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last 
+modified time, permissions, and type. This tool is perfect for understanding file characteristics without reading the actual content. Only works within 
+allowed directories.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": "False",
+            "$schema": "http://json-schema.org/draft-07/schema#"
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "filesystem_list_allowed_directories",
+          "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also 
+accessible. Use this to understand which directories and their nested paths are available before trying to access files.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      }
+    ],
+    "max_tokens": 4096
+  }
+}
+[DEBUG] 2025-10-30T21:25:42 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Chat in progress
+{
+  "data": {
+    "progress_action": "Chatting",
+    "model": "qwen-turbo",
+    "agent_name": "pdf_researcher",
+    "chat_turn": 2
+  }
+}
+[ERROR] 2025-10-30T21:25:59 mcp_agent.executor.executor - Error executing task: Request timed out.
+[DEBUG] 2025-10-30T21:25:59 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - OpenAI ChatCompletion response:
+{
+  "data": {
+    "request": {
+      "method": "POST",
+      "url": {
+        "_uri_reference": [
+          "https",
+          "",
+          "api.zhizengzeng.com",
+          null,
+          "/v1/chat/completions",
+          null,
+          null
+        ]
+      },
+      "headers": [
+        "host",
+        "accept-encoding",
+        "connection",
+        "accept",
+        "content-type",
+        "user-agent",
+        "x-stainless-lang",
+        "x-stainless-package-version",
+        "x-stainless-os",
+        "x-stainless-arch",
+        "x-stainless-runtime",
+        "x-stainless-runtime-version",
+        "authorization",
+        "x-stainless-async",
+        "x-stainless-retry-count",
+        "x-stainless-read-timeout",
+        "content-length"
+      ],
+      "extensions": {
+        "timeout": {
+          "connect": 5.0,
+          "read": 600,
+          "write": "600",
+          "pool": "600"
+        }
+      },
+      "stream": [
+        {
+          "capitalize": "<callable: capitalize>",
+          "center": "<callable: center>",
+          "count": "<callable: count>",
+          "decode": "<callable: decode>",
+          "endswith": "<callable: endswith>",
+          "expandtabs": "<callable: expandtabs>",
+          "find": "<callable: find>",
+          "fromhex": "<callable: fromhex>",
+          "hex": "<callable: hex>",
+          "index": "<callable: index>",
+          "isalnum": "<callable: isalnum>",
+          "isalpha": "<callable: isalpha>",
+          "isascii": "<callable: isascii>",
+          "isdigit": "<callable: isdigit>",
+          "islower": "<callable: islower>",
+          "isspace": "<callable: isspace>",
+          "istitle": "<callable: istitle>",
+          "isupper": "<callable: isupper>",
+          "join": "<callable: join>",
+          "ljust": "<callable: ljust>",
+          "lower": "<callable: lower>",
+          "lstrip": "<callable: lstrip>",
+          "maketrans": "<callable: maketrans>",
+          "partition": "<callable: partition>",
+          "removeprefix": "<callable: removeprefix>",
+          "removesuffix": "<callable: removesuffix>",
+          "replace": "<callable: replace>",
+          "rfind": "<callable: rfind>",
+          "rindex": "<callable: rindex>",
+          "rjust": "<callable: rjust>",
+          "rpartition": "<callable: rpartition>",
+          "rsplit": "<callable: rsplit>",
+          "rstrip": "<callable: rstrip>",
+          "split": "<callable: split>",
+          "splitlines": "<callable: splitlines>",
+          "startswith": "<callable: startswith>",
+          "strip": "<callable: strip>",
+          "swapcase": "<callable: swapcase>",
+          "title": "<callable: title>",
+          "translate": "<callable: translate>",
+          "upper": "<callable: upper>",
+          "zfill": "<callable: zfill>"
+        }
+      ],
+      "_content": "b'{\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful research assistant.\\\\n            You can read local files using 
+\\'filesystem\\' and read PDF content using \\'pdf-reader\\'.\\\\n            Use the \\'pdf-reader\\' tools (like read_pdf_with_ocr) when asked to analyze 
+a PDF.\\\\n            Use \\'filesystem\\' tools (like list_files) for general file operations.\"},{\"role\":\"user\",\"content\":\"Please extract all 
+images from the PDF at \\'D:\\\\\\\\agent\\\\\\\\easy test\\\\\\\\tcw.pdf\\' and save them to the directory 
+\\'D:\\\\u0007gent\\\\\\\\my_images\\'.\"},{\"role\":\"assistant\",\"audio\":null,\"refusal\":null,\"name\":\"pdf_researcher\",\"content\":\"\",\"tool_calls
+\":[{\"id\":\"call_b2a35e08eaf447808487ea\",\"function\":{\"arguments\":\"{\\\\\"file_path\\\\\": \\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\easy 
+test\\\\\\\\\\\\\\\\tcw.pdf\\\\\", \\\\\"output_dir\\\\\": 
+\\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\my_images\\\\\"}\",\"name\":\"pdf-reader_extract_pdf_images\"},\"type\":\"function\"}]},{\"role\":\"tool\",\"to
+ol_call_id\":\"call_b2a35e08eaf447808487ea\",\"content\":[{\"type\":\"text\",\"text\":\"{\\\\\"success\\\\\":true,\\\\\"file_path\\\\\":\\\\\"D:\\\\\\\\\\\\
+\\\\agent\\\\\\\\\\\\\\\\easy 
+test\\\\\\\\\\\\\\\\tcw.pdf\\\\\",\\\\\"output_directory\\\\\":\\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\my_images\\\\\",\\\\\"pages_processed\\\\\":\\\\
+\"1-1\\\\\",\\\\\"images_extracted\\\\\":5,\\\\\"images\\\\\":[{\\\\\"page_number\\\\\":1,\\\\\"image_index\\\\\":5,\\\\\"filename\\\\\":\\\\\"page_1_img_5.
+png\\\\\",\\\\\"path\\\\\":\\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\my_images\\\\\\\\\\\\\\\\page_1_img_5.png\\\\\",\\\\\"width\\\\\":72,\\\\\"height\\\
+\\":72,\\\\\"size_bytes\\\\\":9756},{\\\\\"page_number\\\\\":1,\\\\\"image_index\\\\\":6,\\\\\"filename\\\\\":\\\\\"page_1_img_6.png\\\\\",\\\\\"path\\\\\":
+\\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\my_images\\\\\\\\\\\\\\\\page_1_img_6.png\\\\\",\\\\\"width\\\\\":72,\\\\\"height\\\\\":72,\\\\\"size_bytes\\\\
+\":9654},{\\\\\"page_number\\\\\":1,\\\\\"image_index\\\\\":7,\\\\\"filename\\\\\":\\\\\"page_1_img_7.png\\\\\",\\\\\"path\\\\\":\\\\\"D:\\\\\\\\\\\\\\\\age
+nt\\\\\\\\\\\\\\\\my_images\\\\\\\\\\\\\\\\page_1_img_7.png\\\\\",\\\\\"width\\\\\":72,\\\\\"height\\\\\":72,\\\\\"size_bytes\\\\\":9059},{\\\\\"page_number
+\\\\\":1,\\\\\"image_index\\\\\":8,\\\\\"filename\\\\\":\\\\\"page_1_img_8.png\\\\\",\\\\\"path\\\\\":\\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\my_images
+\\\\\\\\\\\\\\\\page_1_img_8.png\\\\\",\\\\\"width\\\\\":72,\\\\\"height\\\\\":72,\\\\\"size_bytes\\\\\":9724},{\\\\\"page_number\\\\\":1,\\\\\"image_index\
+\\\\":9,\\\\\"filename\\\\\":\\\\\"page_1_img_9.png\\\\\",\\\\\"path\\\\\":\\\\\"D:\\\\\\\\\\\\\\\\agent\\\\\\\\\\\\\\\\my_images\\\\\\\\\\\\\\\\page_1_img_
+9.png\\\\\",\\\\\"width\\\\\":351,\\\\\"height\\\\\":421,\\\\\"size_bytes\\\\\":171280}]}\"}]}],\"model\":\"qwen-turbo\",\"max_tokens\":4096,\"tools\":[{\"t
+ype\":\"function\",\"function\":{\"name\":\"pdf-reader_read_pdf_text\",\"description\":\"Extract text content from a PDF file\\\\n\\\\nArgs:\\\\n    
+file_path: Path to the PDF file to read\\\\n    page_range: Optional dict with \\'start\\' and \\'end\\' page numbers (1-indexed)\\\\n\\\\nReturns:\\\\n    
+Dictionary containing extracted text and 
+metadata\",\"parameters\":{\"properties\":{\"file_path\":{\"type\":\"string\"},\"page_range\":{\"anyOf\":[{\"additionalProperties\":true,\"type\":\"object\"
+},{\"type\":\"null\"}],\"default\":null}},\"required\":[\"file_path\"],\"type\":\"object\"}}},{\"type\":\"function\",\"function\":{\"name\":\"pdf-reader_ext
+ract_pdf_images\",\"description\":\"Extract all images from a PDF file\\\\n\\\\nArgs:\\\\n    file_path: Path to the PDF file\\\\n    output_dir: Directory 
+to save extracted images (optional, defaults to temp dir)\\\\n    page_range: Optional dict with \\'start\\' and \\'end\\' page numbers 
+(1-indexed)\\\\n\\\\nReturns:\\\\n    Dictionary containing information about extracted 
+images\",\"parameters\":{\"properties\":{\"file_path\":{\"type\":\"string\"},\"output_dir\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"default
+\":null},\"page_range\":{\"anyOf\":[{\"additionalProperties\":true,\"type\":\"object\"},{\"type\":\"null\"}],\"default\":null}},\"required\":[\"file_path\"]
+,\"type\":\"object\"}}},{\"type\":\"function\",\"function\":{\"name\":\"pdf-reader_read_pdf_with_ocr\",\"description\":\"Extract text from PDF including OCR
+text from images\\\\n\\\\nArgs:\\\\n    file_path: Path to the PDF file\\\\n    page_range: Optional dict with \\'start\\' and \\'end\\' page numbers 
+(1-indexed)\\\\n    ocr_language: OCR language code (default: \\'eng\\')\\\\n\\\\nReturns:\\\\n    Dictionary containing extracted text from both text and 
+images\",\"parameters\":{\"properties\":{\"file_path\":{\"type\":\"string\"},\"page_range\":{\"anyOf\":[{\"additionalProperties\":true,\"type\":\"object\"},
+{\"type\":\"null\"}],\"default\":null},\"ocr_language\":{\"default\":\"eng\",\"type\":\"string\"}},\"required\":[\"file_path\"],\"type\":\"object\"}}},{\"ty
+pe\":\"function\",\"function\":{\"name\":\"pdf-reader_get_pdf_info\",\"description\":\"Get metadata and information about a PDF file\\\\n\\\\nArgs:\\\\n    
+file_path: Path to the PDF file\\\\n\\\\nReturns:\\\\n    Dictionary containing PDF metadata and 
+statistics\",\"parameters\":{\"properties\":{\"file_path\":{\"type\":\"string\"}},\"required\":[\"file_path\"],\"type\":\"object\"}}},{\"type\":\"function\"
+,\"function\":{\"name\":\"pdf-reader_analyze_pdf_structure\",\"description\":\"Analyze PDF structure including pages, images, and text 
+blocks\\\\n\\\\nArgs:\\\\n    file_path: Path to the PDF file\\\\n\\\\nReturns:\\\\n    Dictionary containing detailed structural 
+analysis\",\"parameters\":{\"properties\":{\"file_path\":{\"type\":\"string\"}},\"required\":[\"file_path\"],\"type\":\"object\"}}},{\"type\":\"function\",\
+"function\":{\"name\":\"filesystem_read_file\",\"description\":\"Read the complete contents of a file as text. DEPRECATED: Use read_text_file 
+instead.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"},\"tail\":{\"type\":\"number\",\"description\":\"If provided, 
+returns only the last N lines of the file\"},\"head\":{\"type\":\"number\",\"description\":\"If provided, returns only the first N lines of the 
+file\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function
+\":{\"name\":\"filesystem_read_text_file\",\"description\":\"Read the complete contents of a file from the file system as text. Handles various text 
+encodings and provides detailed error messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 
+\\'head\\' parameter to read only the first N lines of a file, or the \\'tail\\' parameter to read only the last N lines of a file. Operates on the file as 
+text regardless of extension. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"},\"tail\":{\"type\":\"number\",\"description\":\"If 
+provided, returns only the last N lines of the file\"},\"head\":{\"type\":\"number\",\"description\":\"If provided, returns only the first N lines of the 
+file\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function
+\":{\"name\":\"filesystem_read_media_file\",\"description\":\"Read an image or audio file. Returns the base64 encoded data and MIME type. Only works within 
+allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"
+$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_read_multiple_files\",\"description\":\"
+Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files.
+Each file\\'s content is returned with its path as a reference. Failed reads for individual files won\\'t stop the entire operation. Only works within 
+allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"paths\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"paths\"],
+\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_write_f
+ile\",\"description\":\"Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files 
+without warning. Handles text content with proper encoding. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"},\"content\":{\"type\":\"string\"}},\"required\":[\"path\",
+\"content\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"files
+ystem_edit_file\",\"description\":\"Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff
+showing the changes made. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"},\"edits\":{\"type\":\"array\",\"items\":{\"type\":\"object
+\",\"properties\":{\"oldText\":{\"type\":\"string\",\"description\":\"Text to search for - must match 
+exactly\"},\"newText\":{\"type\":\"string\",\"description\":\"Text to replace 
+with\"}},\"required\":[\"oldText\",\"newText\"],\"additionalProperties\":false}},\"dryRun\":{\"type\":\"boolean\",\"default\":false,\"description\":\"Previe
+w changes using git-style diff 
+format\"}},\"required\":[\"path\",\"edits\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\
+",\"function\":{\"name\":\"filesystem_create_directory\",\"description\":\"Create a new directory or ensure a directory exists. Can create multiple nested 
+directories in one operation. If the directory already exists, this operation will succeed silently. Perfect for setting up directory structures for 
+projects or ensuring required paths exist. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"
+$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_list_directory\",\"description\":\"Get a
+detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories with [FILE] and [DIR] prefixes.
+This tool is essential for understanding directory structure and finding specific files within a directory. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"
+$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_list_directory_with_sizes\",\"descriptio
+n\":\"Get a detailed listing of all files and directories in a specified path, including sizes. Results clearly distinguish between files and directories 
+with [FILE] and [DIR] prefixes. This tool is useful for understanding directory structure and finding specific files within a directory. Only works within 
+allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"},\"sortBy\":{\"type\":\"string\",\"enum\":[\"name\",\"size\
+"],\"default\":\"name\",\"description\":\"Sort entries by name or 
+size\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function
+\":{\"name\":\"filesystem_directory_tree\",\"description\":\"Get a recursive tree view of files and directories as a JSON structure. Each entry includes 
+\\'name\\', \\'type\\' (file/directory), and \\'children\\' for directories. Files have no children array, while directories always have a children array 
+(which may be empty). The output is formatted with 2-space indentation for readability. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"
+$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_move_file\",\"description\":\"Move or 
+rename files and directories. Can move files between directories and rename them in a single operation. If the destination exists, the operation will fail. 
+Works across different directories and can be used for simple renaming within the same directory. Both source and destination must be within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\"},\"destination\":{\"type\":\"string\"}},\"required\":[\"s
+ource\",\"destination\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"na
+me\":\"filesystem_search_files\",\"description\":\"Recursively search for files and directories matching a pattern. Searches through all subdirectories from
+the starting path. The search is case-insensitive and matches partial names. Returns full paths to all matching items. Great for finding files when you 
+don\\'t know their exact location. Only searches within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"},\"pattern\":{\"type\":\"string\"},\"excludePatterns\":{\"t
+ype\":\"array\",\"items\":{\"type\":\"string\"},\"default\":[]}},\"required\":[\"path\",\"pattern\"],\"additionalProperties\":false,\"$schema\":\"http://jso
+n-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_get_file_info\",\"description\":\"Retrieve detailed metadata 
+about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, and type. This tool is perfect 
+for understanding file characteristics without reading the actual content. Only works within allowed 
+directories.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"path\":{\"type\":\"string\"}},\"required\":[\"path\"],\"additionalProperties\":false,\"
+$schema\":\"http://json-schema.org/draft-07/schema#\"}}},{\"type\":\"function\",\"function\":{\"name\":\"filesystem_list_allowed_directories\",\"description
+\":\"Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also accessible. Use this to
+understand which directories and their nested paths are available before trying to access 
+files.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}}}]}'"
+    },
+    "message": "Request timed out.",
+    "body": null,
+    "code": null,
+    "param": null,
+    "type": null
+  }
+}
+[ERROR] 2025-10-30T21:25:59 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Error: Request timed out.
+[DEBUG] 2025-10-30T21:25:59 mcp_agent.workflows.llm.augmented_llm_openai.pdf_researcher - Chat finished
+{
+  "data": {
+    "progress_action": "Finished",
+    "model": "qwen-turbo",
+    "agent_name": "pdf_researcher"
+  }
+}
+[INFO] 2025-10-30T21:25:59 mcp_agent.pdf_summary_agent_from_config - Image Extraction Result: 
+[DEBUG] 2025-10-30T21:25:59 mcp_agent.agents.agent - Shutting down agent pdf_researcher...
+[DEBUG] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_aggregator.pdf_researcher - Decremented connection ref count to 0
+[INFO] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_aggregator.pdf_researcher - Last aggregator closing, shutting down all persistent connections...
+[DEBUG] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_connection_manager - MCPConnectionManager: shutting down all server tasks...
+[INFO] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_connection_manager - Disconnecting all persistent server connections...
+[INFO] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_connection_manager - filesystem: Requesting shutdown...
+[INFO] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_connection_manager - pdf-reader: Requesting shutdown...
+[INFO] 2025-10-30T21:25:59 mcp_agent.mcp.mcp_connection_manager - All persistent server connections signaled to disconnect.
